@@ -23,7 +23,7 @@ function setup() {
   scoreElem.position(20, 20);
   scoreElem.id = 'score';
   scoreElem.style('color', 'white');
-  
+
   createCanvas(500, 500);
   frameRate(speed);
   stroke(255);
@@ -37,13 +37,14 @@ function setup() {
 }
 
 function pauseSwitch() {
-	if (pause == false) {
-		pause = true;
-		noLoop();
-	} else {
-		pause = false;
-		loop();
-	}
+  if (pause == false) {
+    pause = true;
+    noLoop();
+
+  } else {
+    pause = false;
+    loop();
+  }
 }
 
 function draw() {
@@ -100,10 +101,10 @@ function updateSnakeCoordinates() {
 */
 function checkGameStatus() {
   if (xCor[xCor.length - 1] > width ||
-      xCor[xCor.length - 1] < 0 ||
-      yCor[yCor.length - 1] > height ||
-      yCor[yCor.length - 1] < 0 ||
-      checkSnakeCollision()) {
+    xCor[xCor.length - 1] < 0 ||
+    yCor[yCor.length - 1] > height ||
+    yCor[yCor.length - 1] < 0 ||
+    checkSnakeCollision()) {
     noLoop();
     var scoreVal = parseInt(scoreElem.html().substring(8));
     scoreElem.html('Game ended! Your score was : ' + scoreVal);
@@ -138,37 +139,37 @@ function checkForFruit() {
     yCor.unshift(yCor[0]);
     numSegments++;
     updateFruitCoordinates();
-	speedUp();
-	//updateColor();
-	var preColor = color;
-	while (preColor == color) { // prevents two of the same in a row, because that's not fun!
-		colorSwitch();
-	}
+    speedUp();
+    //updateColor();
+    var preColor = color;
+    while (preColor == color) { // prevents two of the same in a row, because that's not fun!
+      colorSwitch();
+    }
   }
 }
 
 // I THINK THIS IS THE STRAT, NEED TO FIND LOTS MORE GOOD COLORS THOUGH
 function colorSwitch() {
-	var choice = getRandomInt(0, 4);
-	switch (choice) {
-		case 0:
-		color = '#FF355E'; // radical red
-		break;
-		case 1:
-		color = '#EE34D2'; // razzle dazzle rose
-		break;
-		case 2:
-		color = '#CCFF00'; // electric lime
-		break;
-		case 3:
-		color = '#FF6037'; // outrageous orange
-		break;
-		case 4:
-		color = '#50BFE6'; // blizzard blue
-		break;
-		default:
-	}
-	stroke(color);
+  var choice = getRandomInt(0, 4);
+  switch (choice) {
+    case 0:
+      color = '#FF355E'; // radical red
+      break;
+    case 1:
+      color = '#EE34D2'; // razzle dazzle rose
+      break;
+    case 2:
+      color = '#CCFF00'; // electric lime
+      break;
+    case 3:
+      color = '#FF6037'; // outrageous orange
+      break;
+    case 4:
+      color = '#50BFE6'; // blizzard blue
+      break;
+    default:
+  }
+  stroke(color);
 }
 
 /* THIS FINDS A RANDOM COLOR WITHIN THE RANDOMINT'S RANGE, BUT OFTEN ARE UGLY OR INDISTINGUISHABLE
@@ -188,24 +189,24 @@ function getRandomInt(min, max) {
 }
 
 function difficultySwitch() {
-	classic = !classic;
-	if (classic) {
-		document.getElementById("difficultyMessage").innerHTML = "CLASSIC";
-	} else {
-		document.getElementById("difficultyMessage").innerHTML = "SPEED DEMON";
-	}
-	speedUp();
+  classic = !classic;
+  if (classic) {
+    document.getElementById("difficultyMessage").innerHTML = "CLASSIC";
+  } else {
+    document.getElementById("difficultyMessage").innerHTML = "SPEED DEMON";
+  }
+  speedUp();
 }
 
 function speedUp() {
-	if (numSegments%2 == 0) {
-		if (classic) {
-			speed = 15;
-		} else {
-			speed = numSegments/2 + 10;
-		}
-	}
-	frameRate(speed);
+  if (numSegments % 2 == 0) {
+    if (classic) {
+      speed = 15;
+    } else {
+      speed = numSegments / 2 + 10;
+    }
+  }
+  frameRate(speed);
 }
 
 function updateFruitCoordinates() {
@@ -240,9 +241,9 @@ function keyPressed() {
       if (direction != 'up') {
         direction = 'down';
       }
-	  break;
-	case 32:
-	  pauseSwitch();
+      break;
+    case 32:
+      pauseSwitch();
       break;
   }
 }
