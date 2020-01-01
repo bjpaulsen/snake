@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+	<script src="p5.min.js"></script>
+	<script src="p5.dom.min.js"></script>
+	<script src="sketch.js"></script>
+	<style>
+		#difficultyMessage {
+			position: absolute;
+			left: 520px;
+			top: 80px;
+		}
+
+		#difficultyButton {
+			position: absolute;
+			left: 520px;
+			top: 60px;
+		}
+
+		#pauseButton {
+			position: absolute;
+			left: 520px;
+			top: 20px;
+		}
+
+		#highScore {
+			position: absolute;
+			left: 520px;
+			top: 100px;
+			font-size: 50px;
+			font-family: Courier
+		}
+	</style>
+</head>
+
+<body>
+	<p id="difficultyMessage">CLASSIC</p>
+	<button id="difficultyButton" onclick="difficultySwitch()">Classic / Speed Demon</button>
+	<button id="pauseButton" onclick="pauseSwitch()">Play / Pause</button>
+	<p id="highScore"></p>
+</body>
+
+</html>
